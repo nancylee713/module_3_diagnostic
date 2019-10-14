@@ -16,7 +16,8 @@ class PotterApiService
       url: 'https://www.potterapi.com/v1/characters',
       params: {
         'key' => ENV["POTTER_API_KEY"],
-        'house' => @house
+        'house' => @house,
+        'orderOfThePhoenix' => true
       }
     )
   end
