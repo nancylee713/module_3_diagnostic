@@ -8,16 +8,23 @@ describe "As a user" do
 
     click_on 'Search For Members'
 
-    save_and_open_page
     expect(current_path).to eq('/search')
 
-    expect(page).to have_content('21 Members')
+    expect(page).to have_content('41 Members')
 
-    within "#member-#{member.id}" do
-      expect(page).to have_content(member.name)
-      expect(page).to have_content(member.role)
-      expect(page).to have_content(member.house)
-      expect(page).to have_content(member.patronus)
+    member = {
+      id: "5a109f053dc2080021cd8793",
+      name: "Remus Lupin",
+      role: "Professor, Defence Against the Dark Arts",
+      house: "Gryffindor",
+      patronus: "wolf"
+    }
+
+    within "#member-#{member[:id]}" do
+      expect(page).to have_content(member[:name])
+      expect(page).to have_content(member[:role])
+      expect(page).to have_content(member[:house])
+      expect(page).to have_content(member[:patronus])
     end
   end
 end
